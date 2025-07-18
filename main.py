@@ -33,6 +33,10 @@ def webhook():
     temp = weather.get("main", {}).get("temp", 0)
     sunset = weather.get("sys", {}).get("sunset", 0)
     sunrise = weather.get("sys", {}).get("sunrise", 0)
+    windSpeed = weather.get("wind", {}).get("speed", 0)
+    feelsLike = weather.get("main", {}).get("feels_like", 0)
+    lowTemp = weather.get("main", {}).get("temp_min", 0)
+    highTemp = weather.get("main", {}).get("temp_max", 0)
 
     rainy_conditions = ["rain", "drizzle", "thunderstorm", "shower"]
 
@@ -61,11 +65,34 @@ def webhook():
 
 
     elif intent == "SunRiseQuery":
-        
-        
-
         sunrise_local = datetime.fromtimestamp(sunrise, tz=local_tz)
         response = f"Sunrise is at {sunrise_local.strftime('%I:%M %p')}."
+
+    elif intent == "TimeForWalk":
+        now = datetime.now(local_tz).timestamp()
+        if now < sunrise or now > sunset:
+            response = "It’s already dark outside. If you still want to walk, make sure it's a safe area."
+        elif any(word in condition for word in rainy_conditions):
+            response = "It might not be a good time — it's currently raining outside."
+        elif temp >= 35:
+            response = "It's a bit too hot outside. Maybe wait until it cools down."
+        elif temp <= 5:
+            response = "It's quite cold right now. If you go out, dress warmly!"
+        else:
+            response = "Yes, it's a great time for a walk! The weather is clear and pleasant."
+
+    elif intent =="todayWeather":
+        response = (
+    f"Here's what the weather looks like today:\n\n"
+    f"• 🌦 Weather: {description.capitalize()}\n"
+    f"• 🌡 Temperature: {temp}°C (Feels like {feelsLike}°C)\n"
+    f"• 🔼 Max Temp: {highTemp}°C\n"
+    f"• 🔽 Min Temp: {lowTemp}°C\n"
+    f"• 💨 Wind Speed: {windSpeed} m/s\n\n"
+    f"Don't forget to dress accordingly. Stay safe and enjoy your day!"
+)
+
+
 
 
     else:
