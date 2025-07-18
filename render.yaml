@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: dialogflow-webhook
-    runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn main:app
-    envVars:
-      - key: OPENWEATHER_KEY
-        value: d82f7827353e79d8884edc88b6af0184
