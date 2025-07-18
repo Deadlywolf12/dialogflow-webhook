@@ -3,6 +3,8 @@ import requests
 from flask import Flask, jsonify, request
 from datetime import datetime, timezone, timedelta
 from pytz import timezone
+from timezonefinder import TimezoneFinder
+
 
 
 app = Flask(__name__)
@@ -14,7 +16,7 @@ def webhook():
     lat = payload.get("latitude")
     long = payload.get("longitude")
     tf = TimezoneFinder()
-    tz_str = tf.timezone_at(lat=lat, lng=lon)  # e.g. "Asia/Karachi"
+    tz_str = tf.timezone_at(lat=lat, lng=long)  # e.g. "Asia/Karachi"
     local_tz = timezone(tz_str)
 
     intent = req.get("queryResult", {}).get("intent", {}).get("displayName", "")
@@ -63,7 +65,7 @@ def webhook():
         
 
         sunrise_local = datetime.fromtimestamp(sunrise, tz=local_tz)
-        response = f"Sunset is at {sunrise_local.strftime('%I:%M %p')}."
+        response = f"Sunrise is at {sunrise_local.strftime('%I:%M %p')}."
 
 
     else:
