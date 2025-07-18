@@ -1,6 +1,9 @@
 import os
 import requests
 from flask import Flask, jsonify, request
+from datetime import datetime, timezone, timedelta
+from pytz import timezone
+
 
 app = Flask(__name__)
 
@@ -10,6 +13,9 @@ def webhook():
     payload = req.get("originalDetectIntentRequest", {}).get("payload", {})
     lat = payload.get("latitude")
     long = payload.get("longitude")
+    tf = TimezoneFinder()
+    tz_str = tf.timezone_at(lat=lat, lng=lon)  # e.g. "Asia/Karachi"
+    local_tz = timezone(tz_str)
 
     intent = req.get("queryResult", {}).get("intent", {}).get("displayName", "")
     api_key = os.getenv("OPENWEATHER_KEY")
@@ -23,6 +29,8 @@ def webhook():
     condition = weather.get("weather", [{}])[0].get("main", "").lower()
     description = weather.get("weather", [{}])[0].get("description", "").lower()
     temp = weather.get("main", {}).get("temp", 0)
+    sunset = weather.get("sys", {}).get("sunset", 0)
+    sunrise = weather.get("sys", {}).get("sunrise", 0)
 
     rainy_conditions = ["rain", "drizzle", "thunderstorm", "shower"]
 
@@ -44,6 +52,19 @@ def webhook():
         
         if any(word in condition for word in rainy_conditions):
             response += " Also, take a raincoat or umbrella."
+
+    elif intent == "SunSetQuery":
+        sunset_local = datetime.fromtimestamp(sunset, tz=local_tz)
+        response = f"Sunset is at {sunset_local.strftime('%I:%M %p')}."
+
+
+    elif intent == "SunRiseQuery":
+        
+        
+
+        sunrise_local = datetime.fromtimestamp(sunrise, tz=local_tz)
+        response = f"Sunset is at {sunrise_local.strftime('%I:%M %p')}."
+
 
     else:
         response = "Sorry, I can't help with that."
