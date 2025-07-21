@@ -3,4 +3,5 @@ requests
 gunicorn
 pytz
 timezonefinder
-scikit-learn
+scikit-learn==1.1.3
+

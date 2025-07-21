@@ -29,7 +29,7 @@ def webhook():
 
     api_key = os.getenv("OPENWEATHER_KEY")
     print("Predicted Intent:", intent)
-    print(model['classifier'].classes_)
+    
 
 
 
