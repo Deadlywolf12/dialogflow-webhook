@@ -27,6 +27,10 @@ def webhook():
     vec = model['vectorizer'].transform([user_message])
     intent = model['classifier'].predict(vec)[0]
     api_key = os.getenv("OPENWEATHER_KEY")
+    print("Predicted Intent:", intent)
+    print(model['classifier'].classes_)
+
+
 
     if not api_key:
         return jsonify({"fulfillmentText": "Missing weather API key!"})
