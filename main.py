@@ -4,10 +4,14 @@ from flask import Flask, jsonify, request
 from datetime import datetime, timezone, timedelta
 from pytz import timezone
 from timezonefinder import TimezoneFinder
+import pickle
 
 
 
 app = Flask(__name__)
+
+with open("intent_model.pkl", "rb") as f:
+    model, vectorizer = pickle.load(f)
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
@@ -19,7 +23,9 @@ def webhook():
     tz_str = tf.timezone_at(lat=lat, lng=long)  # e.g. "Asia/Karachi"
     local_tz = timezone(tz_str)
 
-    intent = req.get("queryResult", {}).get("intent", {}).get("displayName", "")
+    user_message = req.get("queryResult", {}).get("queryText", "")
+    X_input = vectorizer.transform([user_message])
+    intent = model.predict(X_input)[0]
     api_key = os.getenv("OPENWEATHER_KEY")
 
     if not api_key:
