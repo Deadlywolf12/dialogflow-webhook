@@ -21,6 +21,10 @@ def detect_intent(message: str) -> str:
         return "TimeForWalk"
     elif any(word in msg for word in ["weather", "temperature", "forecast", "today"]):
         return "todayWeather"
+    elif any(word in msg for word in ["ty", "thanks", "thank you", "shukriya"]):
+        return "thanking"
+    elif any(word in msg for word in ["good", "morning", "hi", "hello","help","afternoon","noon","evening","salam"]):
+        return "greetings"
     else:
         return "Unknown"
 
@@ -124,13 +128,22 @@ def webhook():
     f"• 🔽 Min Temp: {lowTemp}°C\n"
     f"• 💨 Wind Speed: {windSpeed} m/s\n\n"
     f"Don't forget to dress accordingly. Stay safe and enjoy your day!"
+    
 )
+    elif intent == "thanking":
+        response = "Your Welcome, Happy to Help, let me know if you need help with other thing"
+    elif intent == "greetings":
+        response = "Hello there! How can i help you today?"
 
 
 
 
     else:
-        response = "Sorry, I can't help with that."
+        response = ("Oops, I didn’t quite catch that. Could you please rephrase?\n\n"
+                    "• You can ask me things like:\n"
+                   "• What's the weather like today?\n"
+                    "• What should I wear?\n"
+                    "• When’s the best time to go for a walk?")
 
     return jsonify({"fulfillmentText": response})
 
