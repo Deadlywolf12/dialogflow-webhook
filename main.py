@@ -7,13 +7,32 @@ from timezonefinder import TimezoneFinder
 import pickle
 
 
+def detect_intent(message: str) -> str:
+    msg = message.lower()
+    if any(word in msg for word in ["umbrella", "rain", "wet"]):
+        return "UmbrellaAdvice"
+    elif any(word in msg for word in ["wear", "clothes", "dress", "jacket", "hot", "cold"]):
+        return "ClothingAdvice"
+    elif "sunset" in msg:
+        return "SunSetQuery"
+    elif "sunrise" in msg:
+        return "SunRiseQuery"
+    elif "walk" in msg:
+        return "TimeForWalk"
+    elif any(word in msg for word in ["weather", "temperature", "forecast", "today"]):
+        return "todayWeather"
+    else:
+        return "Unknown"
+
+
+
 
 app = Flask(__name__)
 
-with open('intent_model.pkl', 'rb') as f:
-    data = pickle.load(f)
-    model = data['classifier']      
-    vectorizer = data['vectorizer'] 
+# with open('intent_model.pkl', 'rb') as f:
+#     data = pickle.load(f)
+#     model = data['classifier']      
+#     vectorizer = data['vectorizer'] 
 
 
 @app.route('/webhook', methods=['POST'])
@@ -27,8 +46,9 @@ def webhook():
     local_tz = timezone(tz_str)
 
     user_message = req.get("queryResult", {}).get("queryText", "")
-    vec = vectorizer.transform([user_message])
-    intent = model.predict(vec)[0]
+    # vec = vectorizer.transform([user_message])
+    # intent = model.predict(vec)[0]
+    intent = detect_intent(user_message)
 
     api_key = os.getenv("OPENWEATHER_KEY")
     print("Predicted Intent:", intent)
