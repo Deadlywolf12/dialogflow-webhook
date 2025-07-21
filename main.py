@@ -21,9 +21,9 @@ def detect_intent(message: str) -> str:
         return "TimeForWalk"
     elif any(word in msg for word in ["weather", "temperature", "forecast", "today"]):
         return "todayWeather"
-    elif any(word in msg for word in ["ty", "thanks", "thank you", "shukriya"]):
+    elif any(word in msg for word in ["ty", "thanks", "thank you", "shukriya","good"]):
         return "thanking"
-    elif any(word in msg for word in ["good", "morning", "hi", "hello","help","afternoon","noon","evening","salam"]):
+    elif any(word in msg for word in ["morning", "hi", "hello","help","afternoon","noon","evening","salam"]):
         return "greetings"
     else:
         return "Unknown"
