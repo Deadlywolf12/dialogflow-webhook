@@ -10,8 +10,11 @@ import pickle
 
 app = Flask(__name__)
 
-with open("intent_model.pkl", "rb") as f:
-    model, vectorizer = pickle.load(f)
+with open('intent_model.pkl', 'rb') as f:
+    data = pickle.load(f)
+    model = data['classifier']      
+    vectorizer = data['vectorizer'] 
+
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
