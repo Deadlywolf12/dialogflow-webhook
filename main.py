@@ -24,8 +24,9 @@ def webhook():
     local_tz = timezone(tz_str)
 
     user_message = req.get("queryResult", {}).get("queryText", "")
-    vec = model['vectorizer'].transform([user_message])
-    intent = model['classifier'].predict(vec)[0]
+    vec = vectorizer.transform([user_message])
+    intent = model.predict(vec)[0]
+
     api_key = os.getenv("OPENWEATHER_KEY")
     print("Predicted Intent:", intent)
     print(model['classifier'].classes_)
