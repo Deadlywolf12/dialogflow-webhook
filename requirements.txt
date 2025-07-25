@@ -3,3 +3,5 @@ requests
 gunicorn
 pytz
 timezonefinder
+torch
+transformers
