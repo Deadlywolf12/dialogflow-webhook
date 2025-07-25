@@ -1,0 +1,12 @@
+.git
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+*.model
+*.pt
+*.bin
+node_modules
+*.ipynb
+venv/
