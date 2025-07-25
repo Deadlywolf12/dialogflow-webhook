@@ -4,48 +4,51 @@ from flask import Flask, jsonify, request
 from datetime import datetime, timezone
 from pytz import timezone
 from timezonefinder import TimezoneFinder
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
-import torch
+# from transformers import AutoTokenizer, AutoModelForSequenceClassification
+# import torch
 
 
 # Loading model from hugging face
-model_name = "Deadlywolf12/Weather_chatbot_Ai_Model"  # Replace with your actual HF repo name
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForSequenceClassification.from_pretrained(model_name)
+# adding model to cache
+# os.environ["TRANSFORMERS_CACHE"] = "/tmp/huggingface"
+
+# model_name = "Deadlywolf12/Weather_chatbot_Ai_Model"  # Replace with your actual HF repo name
+# tokenizer = AutoTokenizer.from_pretrained(model_name)
+# model = AutoModelForSequenceClassification.from_pretrained(model_name)
 
 
 
-
-# def detect_intent(message: str) -> str:
-#     msg = message.lower()
-#     if any(word in msg for word in ["umbrella", "rain", "wet"]):
-#         return "UmbrellaAdvice"
-#     elif any(word in msg for word in ["wear", "clothes", "dress", "jacket", "hot", "cold"]):
-#         return "ClothingAdvice"
-#     elif "sunset" in msg:
-#         return "SunSetQuery"
-#     elif "sunrise" in msg:
-#         return "SunRiseQuery"
-#     elif "walk" in msg:
-#         return "TimeForWalk"
-#     elif any(word in msg for word in ["weather", "temperature", "forecast", "today"]):
-#         return "todayWeather"
-#     elif any(word in msg for word in ["ty", "thanks", "thank you", "shukriya","good"]):
-#         return "thanking"
-#     elif any(word in msg for word in ["morning", "hi", "hello","help","afternoon","noon","evening","salam"]):
-#         return "greetings"
-#     else:
-#         return "Unknown"
 
 def detect_intent(message: str) -> str:
-    inputs = tokenizer(message, return_tensors="pt", truncation=True, padding=True)
-    with torch.no_grad():
-        outputs = model(**inputs)
-        logits = outputs.logits
-        predicted_class_id = logits.argmax().item()
+    msg = message.lower()
+    if any(word in msg for word in ["umbrella", "rain", "wet"]):
+        return "UmbrellaAdvice"
+    elif any(word in msg for word in ["wear", "clothes", "dress", "jacket", "hot", "cold"]):
+        return "ClothingAdvice"
+    elif "sunset" in msg:
+        return "SunSetQuery"
+    elif "sunrise" in msg:
+        return "SunRiseQuery"
+    elif "walk" in msg:
+        return "TimeForWalk"
+    elif any(word in msg for word in ["weather", "temperature", "forecast", "today"]):
+        return "todayWeather"
+    elif any(word in msg for word in ["ty", "thanks", "thank you", "shukriya","good"]):
+        return "thanking"
+    elif any(word in msg for word in ["morning", "hi", "hello","help","afternoon","noon","evening","salam"]):
+        return "greetings"
+    else:
+        return "Unknown"
 
-    labels = model.config.id2label  # e.g., {0: "greetings", 1: "todayWeather", ...}
-    return labels[predicted_class_id]
+# def detect_intent(message: str) -> str:
+#     inputs = tokenizer(message, return_tensors="pt", truncation=True, padding=True)
+#     with torch.no_grad():
+#         outputs = model(**inputs)
+#         logits = outputs.logits
+#         predicted_class_id = logits.argmax().item()
+
+#     labels = model.config.id2label  # e.g., {0: "greetings", 1: "todayWeather", ...}
+#     return labels[predicted_class_id]
 
 
 
