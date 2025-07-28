@@ -99,14 +99,14 @@ cp .env.example .env
 Here are example responses from the chatbot using this backend:
 
 ### 📍 Simple hi and api query
-![application end](media/chat.jpg)
+![application end](chat.jpg)
 
 > *User asks: "Hi" — Bot responds with hello response.*
 
 ---
 
 ### ❓ Graceful fallback on unclear input
-![server end](media/response.png)
+![server end](response.png)
 
 > *User asks weather details — Bot replies with realtime data.*
 
