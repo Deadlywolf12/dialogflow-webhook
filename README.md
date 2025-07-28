@@ -27,15 +27,19 @@ A high-performance Flask backend server that uses AI to understand weather-relat
   - Rate limiting
   - Request validation
   - Comprehensive logging
-## 🔗 Related Projects
+ ## 🔗 Related Projects
 
-### 🌩️ Flutter Weather App 
-[![GitHub stars](https://img.shields.io/github/stars/Deadlywolf12/weather_bloc_app?style=flat-square)](https://github.com/Deadlywolf12/weather_bloc_app/stargazers)
-[![Flutter](https://img.shields.io/badge/Flutter-3.13-blue.svg)](https://flutter.dev)
+- 📱 **Flutter Weather App**  
+  [github.com/Deadlywolf12/weather_bloc_app](https://github.com/Deadlywolf12/weather_bloc_app)  
+  *(Companion mobile app using this backend)*
 
-The companion mobile app using this backend:
-```bash
-https://github.com/Deadlywolf12/weather_bloc_app
+- 🧠 **NLP Model for Intent Classification**  
+  [github.com/Deadlywolf12/Ai-NLP-model](https://github.com/Deadlywolf12/Ai-NLP-model)  
+  *(Custom transformer model used to understand user queries)*
+
+
+
+
 
 ## 🛠️ System Architecture
 
@@ -52,3 +56,6 @@ flowchart TD
     I --> J[Generate Response]
     G --> J
     J --> K[User Response]
+
+
+
