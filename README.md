@@ -98,10 +98,13 @@ cp .env.example .env
 
 Here are example responses from the chatbot using this backend:
 
-### 📍 Simple hi and api query
-![application end](chat.jpg)
+<h3>📍 Simple hi and API query</h3>
+<img src="chat.jpg" alt="application end" width="400"/>
 
-> *User asks: "Hi" — Bot responds with hello response.*
+<blockquote>
+  <em>User asks: "Hi" — Bot responds with hello response.</em>
+</blockquote>
+
 
 ---
 
