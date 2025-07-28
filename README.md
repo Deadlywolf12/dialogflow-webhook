@@ -37,6 +37,15 @@ A high-performance Flask backend server that uses AI to understand weather-relat
   [github.com/Deadlywolf12/Ai-NLP-model](https://github.com/Deadlywolf12/Ai-NLP-model)  
   *(Custom transformer model used to understand user queries)*
 
+  ## 🚀 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/weatherbot-backend.git
+cd weatherbot-backend
+
+
 
 
 
