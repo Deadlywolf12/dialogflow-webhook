@@ -9,7 +9,7 @@ A high-performance Flask backend server that uses AI to understand weather-relat
 ## ✨ Features
 
 - **AI-Powered Intent Classification**  
-  Custom NLP model trained to classify 20+ weather-related intents (temperature, rain, wind, clothing advice, etc.)
+  Custom NLP model trained to classify 16+ weather-related intents (temperature, rain, wind, clothing advice, etc.)
   
 - **Smart Caching Layer**  
   Redis/SimpleCache implementation with 20-minute expiry to optimize API calls
