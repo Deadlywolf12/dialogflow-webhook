@@ -1,0 +1,58 @@
+2025-07-29 02:47:49,817 - INFO - AI model loaded successfully
+2025-07-29 02:47:50,369 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.107:5000
+2025-07-29 02:47:50,369 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-29 02:47:50,394 - INFO -  * Restarting with stat
+2025-07-29 02:48:09,306 - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2025-07-29 02:53:20,548 - INFO - AI model loaded successfully
+2025-07-29 02:53:20,574 - WARNING -  * Debugger is active!
+2025-07-29 02:53:20,591 - INFO -  * Debugger PIN: 127-779-861
+2025-07-29 02:58:31,674 - INFO - AI model loaded successfully
+2025-07-29 02:58:31,689 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.107:5000
+2025-07-29 02:58:31,689 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-29 02:58:31,689 - INFO -  * Restarting with stat
+2025-07-29 02:58:42,564 - INFO - AI model loaded successfully
+2025-07-29 02:58:42,580 - WARNING -  * Debugger is active!
+2025-07-29 02:58:42,580 - INFO -  * Debugger PIN: 127-779-861
+2025-07-29 02:59:17,827 - INFO -  * Detected change in 'E:\\app\\dialogflow_webhook\\main.py', reloading
+2025-07-29 02:59:18,927 - INFO -  * Restarting with stat
+2025-07-29 02:59:33,058 - INFO - AI model loaded successfully
+2025-07-29 02:59:33,073 - WARNING -  * Debugger is active!
+2025-07-29 02:59:33,073 - INFO -  * Debugger PIN: 127-779-861
+2025-07-29 02:59:53,807 - INFO - Request 20250729025953807389 started - POST /webhook
+2025-07-29 03:00:03,732 - INFO - Intent Detection - Text: 'hi...' | Intent: greeting | Confidence: 1.00 | Processing Time: 9914.35ms
+2025-07-29 03:00:04,139 - INFO - Request 20250729025953807389 completed | Status: 200 | Time: 10326.53ms | Path: /webhook
+2025-07-29 03:00:04,139 - INFO - 192.168.1.102 - - [29/Jul/2025 03:00:04] "POST /webhook HTTP/1.1" 200 -
+2025-07-29 03:00:21,174 - INFO - Request 20250729030021174809 started - POST /webhook
+2025-07-29 03:00:21,253 - INFO - Intent Detection - Text: 'hi...' | Intent: greeting | Confidence: 1.00 | Processing Time: 74.07ms
+2025-07-29 03:00:21,393 - INFO - Request 20250729030021174809 completed | Status: 200 | Time: 212.36ms | Path: /webhook
+2025-07-29 03:00:21,393 - INFO - 192.168.1.102 - - [29/Jul/2025 03:00:21] "POST /webhook HTTP/1.1" 200 -
+2025-07-29 03:00:52,051 - INFO - Request 20250729030052051084 started - POST /webhook
+2025-07-29 03:00:52,379 - INFO - Intent Detection - Text: 'hello...' | Intent: greeting | Confidence: 1.00 | Processing Time: 335.01ms
+2025-07-29 03:00:52,535 - INFO - Request 20250729030052051084 completed | Status: 200 | Time: 486.45ms | Path: /webhook
+2025-07-29 03:00:52,535 - INFO - 192.168.1.102 - - [29/Jul/2025 03:00:52] "POST /webhook HTTP/1.1" 200 -
+2025-07-29 03:01:12,775 - INFO - Request 20250729030112775986 started - POST /webhook
+2025-07-29 03:01:12,822 - INFO - Intent Detection - Text: 'hi...' | Intent: greeting | Confidence: 1.00 | Processing Time: 43.44ms
+2025-07-29 03:01:12,979 - INFO - Request 20250729030112775986 completed | Status: 200 | Time: 191.16ms | Path: /webhook
+2025-07-29 03:01:12,979 - INFO - 192.168.1.102 - - [29/Jul/2025 03:01:12] "POST /webhook HTTP/1.1" 200 -
+2025-07-29 03:01:24,952 - INFO - Request 20250729030124952256 started - POST /webhook
+2025-07-29 03:01:25,077 - INFO - Intent Detection - Text: 'whats weather today...' | Intent: weather_query | Confidence: 1.00 | Processing Time: 116.79ms
+2025-07-29 03:01:25,952 - INFO - Request 20250729030124952256 completed | Status: 200 | Time: 987.24ms | Path: /webhook
+2025-07-29 03:01:25,952 - INFO - 192.168.1.102 - - [29/Jul/2025 03:01:25] "POST /webhook HTTP/1.1" 200 -
+2025-07-29 03:02:55,413 - INFO -  * Detected change in 'E:\\app\\dialogflow_webhook\\main.py', reloading
+2025-07-29 03:02:56,553 - INFO -  * Restarting with stat
+2025-07-29 03:03:08,989 - INFO - AI model loaded successfully
+2025-07-29 03:03:09,004 - WARNING -  * Debugger is active!
+2025-07-29 03:03:09,020 - INFO -  * Debugger PIN: 127-779-861
+2025-07-29 03:03:31,491 - INFO -  * Detected change in 'E:\\app\\dialogflow_webhook\\main.py', reloading
+2025-07-29 03:03:32,381 - INFO -  * Restarting with stat
+2025-07-29 03:03:44,591 - INFO - AI model loaded successfully
+2025-07-29 03:03:44,606 - WARNING -  * Debugger is active!
+2025-07-29 03:03:44,622 - INFO -  * Debugger PIN: 127-779-861
+2025-07-29 03:03:52,295 - INFO - Detected intent: agree_query (Confidence: 1.00)
+2025-07-29 03:03:52,561 - INFO - 192.168.1.102 - - [29/Jul/2025 03:03:52] "POST /webhook HTTP/1.1" 200 -
