@@ -30,11 +30,11 @@ A high-performance Flask backend server that uses AI to understand weather-relat
  ## 🔗 Related Projects
 
 - 📱 **Flutter Weather App**  
-  [github.com/Deadlywolf12/weather_bloc_app](https://github.com/Deadlywolf12/weather_bloc_app)  
+ https://github.com/Deadlywolf12/weather_bloc_app
   *(Companion mobile app using this backend)*
 
 - 🧠 **NLP Model for Intent Classification**  
-  [github.com/Deadlywolf12/Ai-NLP-model](https://github.com/Deadlywolf12/Ai-NLP-model)  
+ https://github.com/Deadlywolf12/Ai-NLP-model-to-understand-user-querries-related-to-weather-chatbot-  
   *(Custom transformer model used to understand user queries)*
 
   ## 🚀 Installation
