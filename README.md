@@ -39,11 +39,33 @@ A high-performance Flask backend server that uses AI to understand weather-relat
 
   ## 🚀 Installation
 
-Clone the repository:
+### step:1 Clone the repository:
 
 ```bash
 git clone https://github.com/yourusername/weatherbot-backend.git
 cd weatherbot-backend
+```
+
+### step:2 Set up environment:
+
+```bash
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+```
+
+### step:3 Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+### step:3 Configure environment variables:
+
+```bash
+cp .env.example .env
+# Add your OpenWeatherMap API key
+```
 
 
 
