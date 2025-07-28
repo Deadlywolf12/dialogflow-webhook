@@ -98,20 +98,20 @@ cp .env.example .env
 
 Here are example responses from the chatbot using this backend:
 
-<h3>📍 Simple hi and API query</h3>
+<h3>Working of server with flutter chatbot</h3>
 <img src="chat.jpg" alt="application end" width="400"/>
 
 <blockquote>
-  <em>User asks: "Hi" — Bot responds with hello response.</em>
+  <em>Application end</em>
 </blockquote>
 
 
 ---
 
-### ❓ Graceful fallback on unclear input
+### Server In working 
 ![server end](response.png)
 
-> *User asks weather details — Bot replies with realtime data.*
+> *server in work*
 
 
 
